@@ -1,4 +1,4 @@
-# vue-link-preview
+# Vue Link Preview
 
 ## Project setup
 ```
