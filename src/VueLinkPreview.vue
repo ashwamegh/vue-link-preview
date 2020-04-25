@@ -37,7 +37,7 @@
 <script>
 
 export default {
-  name: "VuelinkPreview",
+  name: "VueLinkPreview",
   props: {
     url: {
       type: String,
