@@ -1,11 +1,15 @@
 {
-  "name": "vue-link-preview",
+  "name": "link-preview-vue",
   "version": "0.1.0",
   "main": "dist/vuelinkpreview.umd.js",
   "module": "dist/vuelinkpreview.esm.js",
   "unpkg": "dist/vuelinkpreview.min.js",
   "browser": {
     "./sfc": "src/vuelinkpreview.vue"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ashwamegh/link-preview-vue"
   },
   "files": [
     "dist/*",
@@ -34,5 +38,11 @@
     "rollup-plugin-vue": "^4.7.2",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "author": "Shashank Shekhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwamegh/link-preview-vue/issues"
+  },
+  "homepage": "https://github.com/ashwamegh/link-preview-vue#readme"
 }
