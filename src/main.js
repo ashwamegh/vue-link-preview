@@ -1,10 +1,10 @@
-import VueLinkPreview from './VueLinkPreview.vue'
+import component from './VueLinkPreview.vue'
 
 
 function install(Vue) {
 	if (install.installed) return
 	install.installed = true
-	Vue.component('VueLinkPreview', VueLinkPreview)
+	Vue.component('VueLinkPreview', component)
 }
 
 const plugin = {
@@ -22,6 +22,6 @@ if (GlobalVue) {
 	GlobalVue.use(plugin)
 }
 
-VueLinkPreview.install = install
+component.install = install
 
-export default VueLinkPreview
+export default component
