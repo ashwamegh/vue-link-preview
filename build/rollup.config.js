@@ -3,7 +3,7 @@
 import vue from "rollup-plugin-vue";
 import buble from '@rollup/plugin-buble';
 import { eslint } from 'rollup-plugin-eslint';
-import commonjs from "rollup-plugin-commonjs";
+import commonjs from "@rollup/plugin-commonjs";
 import replace from "@rollup/plugin-replace";
 import resolve from '@rollup/plugin-node-resolve';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
