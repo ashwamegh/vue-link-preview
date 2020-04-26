@@ -75,7 +75,7 @@ export default {
 | ------------- | ------------- | ------------- | ----------- | -------- |
 | `url` | `string` |  | Width of the card preview | true |
 | `width` | `string` | `90%` | Width of the card preview | false |
-| `maxWidth` | `string` | `700` | Max Width of the card preview | false |
+| `maxWidth` | `string` | `700px` | Max Width of the card preview | false |
 | `marginTop` | `string` | `18px` | Margin top for the card | false |
 | `marginBottom` | `string` | `18px` | Margin bottom for the card | false |
 | `marginRight` | `string` | `18px` | Margin right for the card | false |
