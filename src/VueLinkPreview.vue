@@ -17,7 +17,7 @@
       </div>
     </slot>
     <slot v-else :props="preview">
-      <div class="link-preview-section" :style="style" @click="openLink">
+      <div class="link-preview-section" :style="style" @click="onClick">
         <div class="link-description">
           <div class="domain">
             <span class="link-url">{{ preview.domain }}</span>
@@ -125,11 +125,13 @@ export default {
         }
       });
     },
-    openLink() {
+    onClick() {
       if (this.canOpenLink) {
         const { url } = this;
         window.open(url, "_blank");
       }
+
+      this.$emit('click', this.preview)
     }
   },
 
