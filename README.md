@@ -79,7 +79,7 @@ export default {
 | `marginBottom` | `string` | `18px` | Margin bottom for the card | false |
 | `marginRight` | `string` | `18px` | Margin right for the card | false |
 | `marginLeft` | `string` | `18px` | Margin left for the card | false |
-| `canOpenLink` | `boolean` | `true` | Enables, to open link when clicked on card | false |
+| `canOpenLink` | `boolean` | `true` | Enables, to open link when clicked on card | true |
 
 ## Events
 
