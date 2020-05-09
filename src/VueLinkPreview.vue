@@ -1,34 +1,62 @@
 <template>
   <div v-if="validUrl">
-    <slot name="loader" v-if="loading && !preview">
-      <div class="link-preview-section" :style="style">
+    <slot
+      v-if="loading && !preview"
+      name="loader"
+    >
+      <div
+        class="link-preview-section"
+        :style="style"
+      >
         <div class="link-description">
           <div class="domain">
             <span class="link-url-loader animated-background">facebook.com</span>
           </div>
           <div class="link-data-loader">
-            <div class="p1 animated-background">Shashank Shekhar</div>
-            <div class="p2 animated-background">This is some description</div>
+            <div class="p1 animated-background">
+              Shashank Shekhar
+            </div>
+            <div class="p2 animated-background">
+              This is some description
+            </div>
           </div>
         </div>
         <div class="link-image-loader">
-          <div class="img"></div>
+          <div class="img" />
         </div>
       </div>
     </slot>
-    <slot v-else :props="preview">
-      <div class="link-preview-section" :style="style" @click="onClick">
+    <slot
+      v-else
+      :title="preview.title"
+      :img="preview.img"
+      :description="preview.description"
+      :domain="preview.domain"
+    >
+      <div
+        class="link-preview-section"
+        :style="style"
+        @click="onClick"
+      >
         <div class="link-description">
           <div class="domain">
             <span class="link-url">{{ preview.domain }}</span>
           </div>
           <div class="link-data">
-            <div class="link-title">{{ preview.title }}</div>
-            <div class="link-description">{{ preview.description }}</div>
+            <div class="link-title">
+              {{ preview.title }}
+            </div>
+            <div class="link-description">
+              {{ preview.description }}
+            </div>
           </div>
         </div>
         <div class="link-image">
-          <img v-if="preview.img" :src="preview.img" :alt="preview.description" />
+          <img
+            v-if="preview.img"
+            :src="preview.img"
+            :alt="preview.description"
+          >
         </div>
       </div>
     </slot>
@@ -99,6 +127,14 @@ export default {
       };
     }
   },
+
+  mounted() {
+    this.loading = true;
+    this.loadUrlPreviewData().then(response => {
+      this.preview = response;
+      this.loading = false;
+    });
+  },
   methods: {
     isValidUrl: function(url) {
       const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
@@ -133,14 +169,6 @@ export default {
 
       this.$emit('click', this.preview)
     }
-  },
-
-  mounted() {
-    this.loading = true;
-    this.loadUrlPreviewData().then(response => {
-      this.preview = response;
-      this.loading = false;
-    });
   }
 };
 </script>
