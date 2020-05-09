@@ -1,11 +1,11 @@
-# Link-Preview-Vue
+# Vue Link Preview
 
 A Vuejs component to fetch metadata from a URL and preview it 
 
 Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-preview-generator) and [link-prevue](https://github.com/nivaldomartinez/link-prevue) 🙏
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ashwamegh/link-preview-vue/)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ashwamegh/vue-link-preview/)
 [![Build Status](https://travis-ci.org/ashwamegh/link-preview-vue.svg?branch=master)](https://travis-ci.org/github/ashwamegh/link-preview-vue)
 [![npm version](https://badge.fury.io/js/link-preview-vue.svg)](https://www.npmjs.com/package/link-preview-vue)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/034f75bc-1190-436b-922e-07d0b284b9c3/deploy-status)](https://app.netlify.com/sites/link-preview/deploys)
@@ -26,19 +26,19 @@ Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-previe
 ### NPM
 
 ```sh
-npm install link-preview-vue
+npm install @ashwamegh/vue-link-preview
 ```
 
 ### Yarn
 
 ```sh
-yarn add link-preview-vue
+yarn add @ashwamegh/vue-link-preview
 ```
 
 ### UMD build
 
 ```html
-<script src="https://unpkg.com/link-preview-vue@0.1.4/dist/vuelinkpreview.umd.js"></script>
+<script src="https://unpkg.com/vue-link-preview@0.1.7/dist/vuelinkpreview.umd.js"></script>
 ```
 
 ## Usage
@@ -46,15 +46,15 @@ yarn add link-preview-vue
 > Script
 
 ```javascript
-import VueLinkPreview from 'link-preview-vue'
+import LinkPreview from '@ashwamegh/vue-link-preview'
 
 export default {
   components:{
-    VueLinkPreview
+    LinkPreview
   },
   methods: {
-    handleClick(prevue) {
-      console.log('click', prevue.domain, prevue.title, prevue.description, prevue.img)
+    handleClick(preview) {
+      console.log('click', preview.domain, preview.title, preview.description, preview.img)
     }
   }
 }
@@ -64,10 +64,34 @@ export default {
 
 ```html
 <div id="app">
-  <link-prevue url="https://vuejs.org/" @click="handleClick"></link-prevue>
+  <vue-link-preview url="https://vuejs.org/" @click="handleClick"></vue-link-preview>
 </div>
 ```
 
+> With your own layout (With Vue Slots)
+
+For replacing the Loader, you can add this html:
+
+```html
+<vue-link-preview url="https://vuejs.org/" @click="handleClick">
+	<template v-slot:loader>
+        loader...
+    </template>
+</vue-link-preview>
+```
+
+For replacing the content layout, you can use this:
+
+```html
+<template v-slot:default="preview">
+	<div>
+		<p>Domain: {{ preview.domain }}</p>
+		<p>Title: {{ preview.title }}</p>
+		<p>Description: {{ preview.description }}</p>
+		<img height="30px" width="30px" :src="preview.img" :alt="preview.title ">
+	</div>
+</template>
+```
 
 ## Props
 
@@ -80,7 +104,7 @@ export default {
 | `marginBottom` | `string` | `18px` | Margin bottom for the card | false |
 | `marginRight` | `string` | `18px` | Margin right for the card | false |
 | `marginLeft` | `string` | `18px` | Margin left for the card | false |
-| `canOpenLink` | `boolean` | `true` | Enables, to open link when clicked on card | true |
+| `canOpenLink` | `boolean` | `true` | Enables, to open link when clicked on card | false |
 
 ## Events
 
@@ -104,8 +128,8 @@ If don't, just open a [new clear and descriptive issue](../../issues/new).
 Pull requests are the greatest contributions, so be sure they are focused in scope and do avoid unrelated commits.
 
 - Fork it!
-- Clone your fork: `git clone https://github.com/<your-username>/link-preview-vue`
-- Navigate to the newly cloned directory: `cd link-preview-vue`
+- Clone your fork: `git clone https://github.com/<your-username>/vue-link-preview`
+- Navigate to the newly cloned directory: `cd vue-link-preview`
 - Create a new branch for the new feature: `git checkout -b my-new-feature`
 - Install the tools necessary for development: `yarn`
 - Make your changes.
