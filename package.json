@@ -1,5 +1,5 @@
 {
-  "name": "link-preview-vue",
+  "name": "@ashwamegh/vue-link-preview",
   "version": "0.1.7",
   "main": "dist/vuelinkpreview.umd.js",
   "module": "dist/vuelinkpreview.esm.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ashwamegh/link-preview-vue"
+    "url": "git://github.com/ashwamegh/vue-link-preview"
   },
   "files": [
     "dist/*",
@@ -49,7 +49,7 @@
   "author": "Shashank Shekhar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ashwamegh/link-preview-vue/issues"
+    "url": "https://github.com/ashwamegh/vue-link-preview/issues"
   },
-  "homepage": "https://github.com/ashwamegh/link-preview-vue#readme"
+  "homepage": "https://github.com/ashwamegh/vue-link-preview#readme"
 }
