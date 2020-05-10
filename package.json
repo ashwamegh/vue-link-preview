@@ -1,6 +1,6 @@
 {
   "name": "@ashwamegh/vue-link-preview",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "dist/vuelinkpreview.umd.js",
   "module": "dist/vuelinkpreview.esm.js",
   "unpkg": "dist/vuelinkpreview.min.js",
