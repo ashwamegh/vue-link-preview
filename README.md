@@ -1,3 +1,7 @@
+<p align="left">
+  <img src="./assets/link-preview.png" alt="link-preview" width="100%">
+</p>
+
 # Vue Link Preview
 
 A Vuejs component to fetch metadata from a URL and preview it 
@@ -38,7 +42,7 @@ yarn add @ashwamegh/vue-link-preview
 ### UMD build
 
 ```html
-<script src="https://unpkg.com/vue-link-preview@0.1.7/dist/vuelinkpreview.umd.js"></script>
+<script src="https://unpkg.com/vue-link-preview@0.2.1/dist/vuelinkpreview.umd.js"></script>
 ```
 
 ## Usage
@@ -88,7 +92,7 @@ For replacing the content layout, you can use this:
 		<p>Domain: {{ preview.domain }}</p>
 		<p>Title: {{ preview.title }}</p>
 		<p>Description: {{ preview.description }}</p>
-		<img height="30px" width="30px" :src="preview.img" :alt="preview.title ">
+		<img height="100px" width="100px" :src="preview.img" :alt="preview.title ">
 	</div>
 </template>
 ```
