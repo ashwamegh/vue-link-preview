@@ -13,7 +13,6 @@
   },
   "files": [
     "dist/*",
-    "src/*",
     "attributes.json",
     "tags.json"
   ],
