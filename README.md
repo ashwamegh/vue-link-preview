@@ -42,7 +42,7 @@ yarn add @ashwamegh/vue-link-preview
 ### UMD build
 
 ```html
-<script src="https://unpkg.com/vue-link-preview@0.2.1/dist/vuelinkpreview.umd.js"></script>
+<script src="https://unpkg.com/vue-link-preview@0.2.3/dist/vuelinkpreview.umd.js"></script>
 ```
 
 ## Usage
