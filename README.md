@@ -47,7 +47,7 @@ yarn add @ashwamegh/vue-link-preview
 
 ## Usage
 
-> Script
+### Script
 
 ```javascript
 import LinkPreview from '@ashwamegh/vue-link-preview'
@@ -64,7 +64,7 @@ export default {
 }
 ```
 
-> Template
+### Template
 
 ```html
 <div id="app">
@@ -72,7 +72,7 @@ export default {
 </div>
 ```
 
-> With your own layout (With Vue Slots)
+### With custom layout (With Vue Slots)
 
 For replacing the Loader, you can add this html:
 
@@ -87,14 +87,34 @@ For replacing the Loader, you can add this html:
 For replacing the content layout, you can use this:
 
 ```html
-<template v-slot:default="preview">
-	<div>
-		<p>Domain: {{ preview.domain }}</p>
-		<p>Title: {{ preview.title }}</p>
-		<p>Description: {{ preview.description }}</p>
-		<img height="100px" width="100px" :src="preview.img" :alt="preview.title ">
-	</div>
-</template>
+<vue-link-preview url="https://vuejs.org/" @click="handleClick">
+	<template v-slot:default="preview">
+		<div>
+			<p>Domain: {{ preview.domain }}</p>
+			<p>Title: {{ preview.title }}</p>
+			<p>Description: {{ preview.description }}</p>
+			<img height="100px" width="100px" :src="preview.img" :alt="preview.title ">
+		</div>
+	</template>
+</vue-link-preview>
+```
+
+All together with loader and default slot, it'll look like this:
+
+```html
+<vue-link-preview url="https://vuejs.org/" @click="handleClick">
+	<template v-slot:loader>
+        loader...
+    </template>
+	<template v-slot:default="preview">
+		<div>
+			<p>Domain: {{ preview.domain }}</p>
+			<p>Title: {{ preview.title }}</p>
+			<p>Description: {{ preview.description }}</p>
+			<img height="100px" width="100px" :src="preview.img" :alt="preview.title ">
+		</div>
+	</template>
+</vue-link-preview>
 ```
 
 ## Props
