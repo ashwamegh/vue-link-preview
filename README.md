@@ -4,7 +4,7 @@
 
 # Vue Link Preview
 
-A Vuejs component to fetch metadata from a URL and preview it 
+A Vuejs component to fetch metadata from a URL and preview it
 
 Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-preview-generator) and [link-prevue](https://github.com/nivaldomartinez/link-prevue) 🙏
 
@@ -13,6 +13,8 @@ Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-previe
 [![Build Status](https://travis-ci.org/ashwamegh/vue-link-preview.svg?branch=master)](https://travis-ci.org/github/ashwamegh/link-preview-vue)
 [![npm version](https://badge.fury.io/js/%40ashwamegh%2Fvue-link-preview.svg)](https://www.npmjs.com/package/@ashwamegh/vue-link-preview)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/034f75bc-1190-436b-922e-07d0b284b9c3/deploy-status)](https://app.netlify.com/sites/link-preview/deploys)
+<br>
+<a href="https://www.buymeacoffee.com/ashwamegh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ## Demo
 
@@ -50,25 +52,34 @@ yarn add @ashwamegh/vue-link-preview
 ### Script
 
 ```javascript
-import LinkPreview from '@ashwamegh/vue-link-preview'
+import LinkPreview from "@ashwamegh/vue-link-preview";
 
 export default {
-  components:{
-    LinkPreview
-  },
-  methods: {
-    handleClick(preview) {
-      console.log('click', preview.domain, preview.title, preview.description, preview.img)
-    }
-  }
-}
+	components: {
+		LinkPreview,
+	},
+	methods: {
+		handleClick(preview) {
+			console.log(
+				"click",
+				preview.domain,
+				preview.title,
+				preview.description,
+				preview.img
+			);
+		},
+	},
+};
 ```
 
 ### Template
 
 ```html
 <div id="app">
-  <vue-link-preview url="https://vuejs.org/" @click="handleClick"></vue-link-preview>
+	<vue-link-preview
+		url="https://vuejs.org/"
+		@click="handleClick"
+	></vue-link-preview>
 </div>
 ```
 
@@ -79,8 +90,8 @@ For replacing the Loader, you can add this html:
 ```html
 <vue-link-preview url="https://vuejs.org/" @click="handleClick">
 	<template v-slot:loader>
-        loader...
-    </template>
+		loader...
+	</template>
 </vue-link-preview>
 ```
 
@@ -93,7 +104,12 @@ For replacing the content layout, you can use this:
 			<p>Domain: {{ preview.domain }}</p>
 			<p>Title: {{ preview.title }}</p>
 			<p>Description: {{ preview.description }}</p>
-			<img height="100px" width="100px" :src="preview.img" :alt="preview.title ">
+			<img
+				height="100px"
+				width="100px"
+				:src="preview.img"
+				:alt="preview.title "
+			/>
 		</div>
 	</template>
 </vue-link-preview>
@@ -104,14 +120,19 @@ All together with loader and default slot, it'll look like this:
 ```html
 <vue-link-preview url="https://vuejs.org/" @click="handleClick">
 	<template v-slot:loader>
-        loader...
-    </template>
+		loader...
+	</template>
 	<template v-slot:default="preview">
 		<div>
 			<p>Domain: {{ preview.domain }}</p>
 			<p>Title: {{ preview.title }}</p>
 			<p>Description: {{ preview.description }}</p>
-			<img height="100px" width="100px" :src="preview.img" :alt="preview.title ">
+			<img
+				height="100px"
+				width="100px"
+				:src="preview.img"
+				:alt="preview.title "
+			/>
 		</div>
 	</template>
 </vue-link-preview>
@@ -119,21 +140,21 @@ All together with loader and default slot, it'll look like this:
 
 ## Props
 
-| Property      | Type          | Default       | Description | Required |
-| ------------- | ------------- | ------------- | ----------- | -------- |
-| `url` | `string` |  | Width of the card preview | true |
-| `width` | `string` | `90%` | Width of the card preview | false |
-| `maxWidth` | `string` | `700px` | Max Width of the card preview | false |
-| `marginTop` | `string` | `18px` | Margin top for the card | false |
-| `marginBottom` | `string` | `18px` | Margin bottom for the card | false |
-| `marginRight` | `string` | `18px` | Margin right for the card | false |
-| `marginLeft` | `string` | `18px` | Margin left for the card | false |
-| `canOpenLink` | `boolean` | `true` | Enables, to open link when clicked on card | false |
+| Property       | Type      | Default | Description                                | Required |
+| -------------- | --------- | ------- | ------------------------------------------ | -------- |
+| `url`          | `string`  |         | Width of the card preview                  | true     |
+| `width`        | `string`  | `90%`   | Width of the card preview                  | false    |
+| `maxWidth`     | `string`  | `700px` | Max Width of the card preview              | false    |
+| `marginTop`    | `string`  | `18px`  | Margin top for the card                    | false    |
+| `marginBottom` | `string`  | `18px`  | Margin bottom for the card                 | false    |
+| `marginRight`  | `string`  | `18px`  | Margin right for the card                  | false    |
+| `marginLeft`   | `string`  | `18px`  | Margin left for the card                   | false    |
+| `canOpenLink`  | `boolean` | `true`  | Enables, to open link when clicked on card | false    |
 
 ## Events
 
-| Name      | Description |
-| --------- | ----------- |
+| Name    | Description               |
+| ------- | ------------------------- |
 | `click` | It emits the preview data |
 
 > Note: If you want to use `click` event without opening the url, then pass `:canOpenLink="false"` in the props
