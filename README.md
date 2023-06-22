@@ -93,6 +93,14 @@ For replacing the Loader, you can add this html:
 		loader...
 	</template>
 </vue-link-preview>
+
+<!------------------- OR USE THIS ------------------->
+
+<LinkPreview url="https://vuejs.org/" @click="handleClick">
+	<template v-slot:loader>
+		loader...
+	</template>
+</LinkPreview>
 ```
 
 For replacing the content layout, you can use this:
