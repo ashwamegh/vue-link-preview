@@ -1,167 +1,171 @@
 <template>
-	<div v-if="validUrl">
-		<slot v-if="loading && !preview" name="loader">
-			<div class="link-preview-section" :style="style">
-				<div class="link-description">
-					<div class="domain">
-						<span class="link-url-loader animated-background"
-							>facebook.com</span
-						>
-					</div>
-					<div class="link-data-loader">
-						<div class="p1 animated-background">
-							Shashank Shekhar
-						</div>
-						<div class="p2 animated-background">
-							This is some description
-						</div>
-					</div>
-				</div>
-				<div class="link-image-loader">
-					<div class="img" />
-				</div>
-			</div>
-		</slot>
-		<slot
-			v-else
-			:title="preview.title"
-			:img="preview.img"
-			:description="preview.description"
-			:domain="preview.domain"
-		>
-			<div class="link-preview-section" :style="style" @click="onClick">
-				<div class="link-description">
-					<div class="domain">
-						<span class="link-url">{{ preview.domain }}</span>
-					</div>
-					<div class="link-data">
-						<div class="link-title">
-							{{ preview.title }}
-						</div>
-						<div class="link-description">
-							{{ preview.description }}
-						</div>
-					</div>
-				</div>
-				<div class="link-image">
-					<img
-						v-if="preview.img"
-						:src="preview.img"
-						:alt="preview.description"
-					/>
-				</div>
-			</div>
-		</slot>
-	</div>
+    <div v-if="validUrl">
+        <slot v-if="loading && !preview" name="loader">
+            <div class="link-preview-section" :style="style">
+                <div class="link-description">
+                    <div class="domain">
+                        <span class="link-url-loader animated-background"
+                            >facebook.com</span
+                        >
+                    </div>
+                    <div class="link-data-loader">
+                        <div class="p1 animated-background">
+                            Shashank Shekhar
+                        </div>
+                        <div class="p2 animated-background">
+                            This is some description
+                        </div>
+                    </div>
+                </div>
+                <div class="link-image-loader">
+                    <div class="img" />
+                </div>
+            </div>
+        </slot>
+        <slot
+            v-else
+            :title="preview.title"
+            :img="preview.img"
+            :description="preview.description"
+            :domain="preview.domain"
+        >
+            <div class="link-preview-section" :style="style" @click="onClick">
+                <div class="link-description">
+                    <div class="domain">
+                        <span class="link-url">{{ preview.domain }}</span>
+                    </div>
+                    <div class="link-data">
+                        <div class="link-title">
+                            {{ preview.title }}
+                        </div>
+                        <div class="link-description">
+                            {{ preview.description }}
+                        </div>
+                    </div>
+                </div>
+                <div class="link-image">
+                    <img
+                        v-if="preview.img"
+                        :src="preview.img"
+                        :alt="preview.description"
+                    />
+                </div>
+            </div>
+        </slot>
+    </div>
 </template>
 <script>
 export default {
-	name: "VueLinkPreview",
-	props: {
-		url: {
-			type: String,
-			required: true,
-		},
-		width: {
-			type: String,
-			default: "90%",
-		},
-		maxWidth: {
-			type: String,
-			default: "700px",
-		},
-		marginTop: {
-			type: String,
-			default: "18px",
-		},
-		marginBottom: {
-			type: String,
-			default: "18px",
-		},
-		marginRight: {
-			type: String,
-			default: "auto",
-		},
-		marginLeft: {
-			type: String,
-			default: "auto",
-		},
-		canOpenLink: {
-			type: Boolean,
-			default: true,
-		},
-	},
-	data() {
-		return {
-			loading: false,
-			preview: null,
-			api: "https://lpdg.up.railway.app/parse/link",
-			validUrl: false,
-		};
-	},
-	computed: {
-		style() {
-			const {
-				width,
-				maxWidth,
-				marginRight,
-				marginLeft,
-				marginTop,
-				marginBottom,
-			} = this;
-			return {
-				width,
-				maxWidth,
-				marginTop,
-				marginBottom,
-				marginRight,
-				marginLeft,
-			};
-		},
-	},
+    name: "VueLinkPreview",
+    props: {
+        url: {
+            type: String,
+            required: true
+        },
+        width: {
+            type: String,
+            default: "90%"
+        },
+        maxWidth: {
+            type: String,
+            default: "700px"
+        },
+        marginTop: {
+            type: String,
+            default: "18px"
+        },
+        marginBottom: {
+            type: String,
+            default: "18px"
+        },
+        marginRight: {
+            type: String,
+            default: "auto"
+        },
+        marginLeft: {
+            type: String,
+            default: "auto"
+        },
+        customDomain: {
+            type: String,
+            default: "https://lpdg-server.azurewebsites.net/parse/link"
+        },
+        canOpenLink: {
+            type: Boolean,
+            default: true
+        }
+    },
+    data() {
+        return {
+            loading: false,
+            preview: null,
+            api: this.customDomain,
+            validUrl: false
+        };
+    },
+    computed: {
+        style() {
+            const {
+                width,
+                maxWidth,
+                marginRight,
+                marginLeft,
+                marginTop,
+                marginBottom
+            } = this;
+            return {
+                width,
+                maxWidth,
+                marginTop,
+                marginBottom,
+                marginRight,
+                marginLeft
+            };
+        }
+    },
 
-	mounted() {
-		this.loading = true;
-		this.loadUrlPreviewData().then((response) => {
-			this.preview = response;
-			this.loading = false;
-		});
-	},
-	methods: {
-		isValidUrl: function(url) {
-			const regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
-			this.validUrl = regex.test(url);
-			return this.validUrl;
-		},
-		loadUrlPreviewData() {
-			const { url, api } = this;
-			return new Promise((resolve, reject) => {
-				if (this.isValidUrl(url)) {
-					fetch(api, {
-						method: "POST",
-						headers: {
-							Accept: "application/json",
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify({ url }),
-					})
-						.then((response) => response.json())
-						.then((data) => {
-							resolve(data);
-						})
-						.catch((error) => reject(error));
-				}
-			});
-		},
-		onClick() {
-			if (this.canOpenLink) {
-				const { url } = this;
-				window.open(url, "_blank");
-			}
+    mounted() {
+        this.loading = true;
+        this.loadUrlPreviewData().then(response => {
+            this.preview = response;
+            this.loading = false;
+        });
+    },
+    methods: {
+        isValidUrl: function(url) {
+            const regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+            this.validUrl = regex.test(url);
+            return this.validUrl;
+        },
+        loadUrlPreviewData() {
+            const { url, api } = this;
+            return new Promise((resolve, reject) => {
+                if (this.isValidUrl(url)) {
+                    fetch(api, {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ url })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            resolve(data);
+                        })
+                        .catch(error => reject(error));
+                }
+            });
+        },
+        onClick() {
+            if (this.canOpenLink) {
+                const { url } = this;
+                window.open(url, "_blank");
+            }
 
-			this.$emit("click", this.preview);
-		},
-	},
+            this.$emit("click", this.preview);
+        }
+    }
 };
 </script>
 <style lang="css" scoped>
