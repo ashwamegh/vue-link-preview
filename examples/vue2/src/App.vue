@@ -1,6 +1,16 @@
 <!-- eslint-disable vue/html-self-closing -->
 <script setup>
 import LinkPreview from "@ashwamegh/vue-link-preview";
+
+const handleClick = preview => {
+    console.log(
+        "click",
+        preview.domain,
+        preview.title,
+        preview.description,
+        preview.img
+    );
+};
 </script>
 
 <template>
