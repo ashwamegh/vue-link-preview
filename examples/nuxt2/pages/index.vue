@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <no-ssr placeholder="loading...">
-      <LinkPreview url="https://vuejs.org/" @click="handleClick"> </LinkPreview>
+      <LinkPreview url="https://vuejs.org/" @on-click="handleClick">
+      </LinkPreview>
     </no-ssr>
   </div>
 </template>

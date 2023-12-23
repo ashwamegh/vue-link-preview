@@ -2,20 +2,20 @@
 import LinkPreview from "@ashwamegh/vue-link-preview";
 
 const handleClick = (preview: any) => {
-      console.log(
+    console.log(
         'click',
         preview.domain,
         preview.title,
         preview.description,
         preview.img
-      )
+    )
 }
 
 </script>
 
 <template>
   <div id="app">
-    <LinkPreview url="https://vuejs.org/" custom-domain="https://lpdg-server.azurewebsites.net/parse/link" @click="handleClick"/>
+    <LinkPreview url="https://vuejs.org/" custom-domain="https://lpdg-server.azurewebsites.net/parse/link" @on-click="handleClick"/>
   </div>
 </template>
 

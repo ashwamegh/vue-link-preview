@@ -10,7 +10,7 @@ const handleClick = (preview) => {
 <template>
   <LinkPreview
     url="https://vuejs.org/"
-    @click="handleClick"
+    @on-click="handleClick"
     custom-domain="https://lpdg-server.azurewebsites.net/parse/link"
   >
   </LinkPreview>

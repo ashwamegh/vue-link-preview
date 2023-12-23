@@ -15,7 +15,7 @@ const handleClick = preview => {
 
 <template>
     <div id="app">
-        <LinkPreview url="https://vuejs.org/" @click="handleClick">
+        <LinkPreview url="https://vuejs.org/" @on-click="handleClick">
         </LinkPreview>
     </div>
 </template>
