@@ -175,6 +175,8 @@ const handleClick = preview => {
 </template>
 ```
 
+## More Examples [here](https://github.com/ashwamegh/vue-link-preview/tree/v2/examples)
+
 ## Props
 
 | Property       | Type      | Default                                            | Description                                                     | Required |
