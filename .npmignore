@@ -8,7 +8,7 @@
 .babelrc
 .eslintrc
 .travis.yml
-rollup.config.js
+rollup.config.*
 tsconfig.json
 npm-debug.log
 yarn-error.log
