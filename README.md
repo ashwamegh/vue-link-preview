@@ -16,16 +16,18 @@ Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-previe
 <br>
 <a href="https://www.buymeacoffee.com/ashwamegh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
+> **<ins>NOTE: This utilizes https://github.com/ashwamegh/link-preview-generator-server server deployed on Azure, a free web server which can run 30 minutes in a day.</ins> If you want to use it in a PRODUCTION app, I would recommend you to use your own server (You can use the [`Dockerfile`](https://github.com/ashwamegh/link-preview-generator-server/blob/master/Dockerfile) for deploying [link-preview-generator-server](https://github.com/ashwamegh/link-preview-generator-server)) and provide the custom link of the API for `customDomain` in the Component Props**
+
 ## Demo
 
 ## Table of Contents
 
-- [Install](#install)
-- [Usage](#usage)
-- [Props](#props)
-- [Events](#events)
-- [Contribute](#contribute)
-- [License](#license)
+-   [Install](#install)
+-   [Usage](#usage)
+-   [Props](#props)
+-   [Events](#events)
+-   [Contribute](#contribute)
+-   [License](#license)
 
 ## Install
 
@@ -44,7 +46,7 @@ yarn add @ashwamegh/vue-link-preview
 ### UMD build
 
 ```html
-<script src="https://unpkg.com/vue-link-preview@0.2.5/dist/vuelinkpreview.umd.js"></script>
+<script src="https://unpkg.com/@ashwamegh/vue-link-preview@2.7.15/dist/vuelinkpreview.umd.js"></script>
 ```
 
 ## Usage
@@ -55,20 +57,20 @@ yarn add @ashwamegh/vue-link-preview
 import LinkPreview from "@ashwamegh/vue-link-preview";
 
 export default {
-	components: {
-		LinkPreview,
-	},
-	methods: {
-		handleClick(preview) {
-			console.log(
-				"click",
-				preview.domain,
-				preview.title,
-				preview.description,
-				preview.img
-			);
-		},
-	},
+    components: {
+        LinkPreview
+    },
+    methods: {
+        handleClick(preview) {
+            console.log(
+                "click",
+                preview.domain,
+                preview.title,
+                preview.description,
+                preview.img
+            );
+        }
+    }
 };
 ```
 
@@ -76,10 +78,10 @@ export default {
 
 ```html
 <div id="app">
-	<vue-link-preview
-		url="https://vuejs.org/"
-		@click="handleClick"
-	></vue-link-preview>
+    <vue-link-preview
+        url="https://vuejs.org/"
+        @click="handleClick"
+    ></vue-link-preview>
 </div>
 ```
 
@@ -89,17 +91,17 @@ For replacing the Loader, you can add this html:
 
 ```html
 <vue-link-preview url="https://vuejs.org/" @click="handleClick">
-	<template v-slot:loader>
-		loader...
-	</template>
+    <template v-slot:loader>
+        loader...
+    </template>
 </vue-link-preview>
 
 <!------------------- OR USE THIS ------------------->
 
 <LinkPreview url="https://vuejs.org/" @click="handleClick">
-	<template v-slot:loader>
-		loader...
-	</template>
+    <template v-slot:loader>
+        loader...
+    </template>
 </LinkPreview>
 ```
 
@@ -107,19 +109,19 @@ For replacing the content layout, you can use this:
 
 ```html
 <vue-link-preview url="https://vuejs.org/" @click="handleClick">
-	<template v-slot:default="preview">
-		<div>
-			<p>Domain: {{ preview.domain }}</p>
-			<p>Title: {{ preview.title }}</p>
-			<p>Description: {{ preview.description }}</p>
-			<img
-				height="100px"
-				width="100px"
-				:src="preview.img"
-				:alt="preview.title "
-			/>
-		</div>
-	</template>
+    <template v-slot:default="preview">
+        <div>
+            <p>Domain: {{ preview.domain }}</p>
+            <p>Title: {{ preview.title }}</p>
+            <p>Description: {{ preview.description }}</p>
+            <img
+                height="100px"
+                width="100px"
+                :src="preview.img"
+                :alt="preview.title "
+            />
+        </div>
+    </template>
 </vue-link-preview>
 ```
 
@@ -127,37 +129,63 @@ All together with loader and default slot, it'll look like this:
 
 ```html
 <vue-link-preview url="https://vuejs.org/" @click="handleClick">
-	<template v-slot:loader>
-		loader...
-	</template>
-	<template v-slot:default="preview">
-		<div>
-			<p>Domain: {{ preview.domain }}</p>
-			<p>Title: {{ preview.title }}</p>
-			<p>Description: {{ preview.description }}</p>
-			<img
-				height="100px"
-				width="100px"
-				:src="preview.img"
-				:alt="preview.title "
-			/>
-		</div>
-	</template>
+    <template v-slot:loader>
+        loader...
+    </template>
+    <template v-slot:default="preview">
+        <div>
+            <p>Domain: {{ preview.domain }}</p>
+            <p>Title: {{ preview.title }}</p>
+            <p>Description: {{ preview.description }}</p>
+            <img
+                height="100px"
+                width="100px"
+                :src="preview.img"
+                :alt="preview.title "
+            />
+        </div>
+    </template>
 </vue-link-preview>
+```
+
+### With Composition API
+
+```javascript
+<script setup>
+import LinkPreview from "@ashwamegh/vue-link-preview";
+
+const handleClick = preview => {
+    console.log(
+        "click",
+        preview.domain,
+        preview.title,
+        preview.description,
+        preview.img
+    );
+};
+</script>
+
+<template>
+    <div id="app">
+        <LinkPreview url="https://vuejs.org/" @click="handleClick">
+        </LinkPreview>
+    </div>
+</template>
 ```
 
 ## Props
 
-| Property       | Type      | Default | Description                                | Required |
-| -------------- | --------- | ------- | ------------------------------------------ | -------- |
-| `url`          | `string`  |         | Width of the card preview                  | true     |
-| `width`        | `string`  | `90%`   | Width of the card preview                  | false    |
-| `maxWidth`     | `string`  | `700px` | Max Width of the card preview              | false    |
-| `marginTop`    | `string`  | `18px`  | Margin top for the card                    | false    |
-| `marginBottom` | `string`  | `18px`  | Margin bottom for the card                 | false    |
-| `marginRight`  | `string`  | `18px`  | Margin right for the card                  | false    |
-| `marginLeft`   | `string`  | `18px`  | Margin left for the card                   | false    |
-| `canOpenLink`  | `boolean` | `true`  | Enables, to open link when clicked on card | false    |
+| Property       | Type      | Default                                            | Description                                                     | Required |
+| -------------- | --------- | -------------------------------------------------- | --------------------------------------------------------------- | -------- |
+| `url`          | `string`  |                                                    | URL of the page you need the preview for                        | true     |
+| `customDomain` | `string`  | `https://lpdg-server.azurewebsites.net/parse/link` | Custom Server API link which can parse the metadata of the page | false    |
+| `width`        | `string`  | `90%`                                              | Width of the card preview                                       | false    |
+| `maxWidth`     | `string`  | `700px`                                            | Max Width of the card preview                                   | false    |
+| `marginTop`    | `string`  | `18px`                                             | Margin top for the card                                         | false    |
+| `marginBottom` | `string`  | `18px`                                             | Margin bottom for the card                                      | false    |
+| `marginRight`  | `string`  | `18px`                                             | Margin right for the card                                       | false    |
+| `marginLeft`   | `string`  | `18px`                                             | Margin left for the card                                        | false    |
+| `canOpenLink`  | `boolean` | `true`                                             | Enables, to open link when clicked on card                      | false    |
 
 ## Events
 
@@ -180,15 +208,15 @@ If don't, just open a [new clear and descriptive issue](../../issues/new).
 
 Pull requests are the greatest contributions, so be sure they are focused in scope and do avoid unrelated commits.
 
-- Fork it!
-- Clone your fork: `git clone https://github.com/<your-username>/vue-link-preview`
-- Navigate to the newly cloned directory: `cd vue-link-preview`
-- Create a new branch for the new feature: `git checkout -b my-new-feature`
-- Install the tools necessary for development: `yarn`
-- Make your changes.
-- Commit your changes: `git commit -am 'Add some feature'`
-- Push to the branch: `git push origin my-new-feature`
-- Submit a pull request with full remarks documenting your changes
+-   Fork it!
+-   Clone your fork: `git clone https://github.com/<your-username>/vue-link-preview`
+-   Navigate to the newly cloned directory: `cd vue-link-preview`
+-   Create a new branch for the new feature: `git checkout -b my-new-feature`
+-   Install the tools necessary for development: `yarn`
+-   Make your changes.
+-   Commit your changes: `git commit -am 'Add some feature'`
+-   Push to the branch: `git push origin my-new-feature`
+-   Submit a pull request with full remarks documenting your changes
 
 ## License
 
