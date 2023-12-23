@@ -36,19 +36,19 @@ Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-previe
 ### NPM
 
 ```sh
-npm install @ashwamegh/vue-link-preview@v2
+npm install @ashwamegh/vue-link-preview@v2-latest
 ```
 
 ### Yarn
 
 ```sh
-yarn add @ashwamegh/vue-link-preview@v2
+yarn add @ashwamegh/vue-link-preview@v2-latest
 ```
 
 ### UMD build
 
 ```html
-<script src="https://unpkg.com/@ashwamegh/vue-link-preview@v2/dist/vuelinkpreview.umd.js"></script>
+<script src="https://unpkg.com/@ashwamegh/vue-link-preview@v2-latest/dist/vuelinkpreview.umd.js"></script>
 ```
 
 ## Usage
