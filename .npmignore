@@ -10,6 +10,15 @@
 .travis.yml
 rollup.config.*
 tsconfig.json
+tsconfig.node.json
+vite.config.ts
 npm-debug.log
 yarn-error.log
 src
+.prettierignore
+.prettierrc.js
+.editorconfig
+.eslintrc.js
+.eslintignore
+.vscode
+examples

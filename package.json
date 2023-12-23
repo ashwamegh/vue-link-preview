@@ -1,6 +1,5 @@
 {
     "name": "@ashwamegh/vue-link-preview",
-    "private": true,
     "version": "3.3.0",
     "type": "module",
     "main": "dist/vuelinkpreview.umd.js",
