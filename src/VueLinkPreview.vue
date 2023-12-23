@@ -68,7 +68,7 @@ const onClick = () => {
         window.open(url, "_blank");
     }
 
-    emits("onClick");
+    emits("onClick", preview.value);
 };
 
 const computedStyles = () => {
