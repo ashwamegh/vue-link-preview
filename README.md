@@ -2,6 +2,8 @@
   <img src="./assets/link-preview.png" alt="link-preview" width="100%">
 </p>
 
+> For use with `Vue 3`, Use the latest version [here](https://github.com/ashwamegh/vue-link-preview).
+
 # Vue Link Preview
 
 A Vuejs component to fetch metadata from a URL and preview it
@@ -34,19 +36,19 @@ Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-previe
 ### NPM
 
 ```sh
-npm install @ashwamegh/vue-link-preview
+npm install @ashwamegh/vue-link-preview@v2
 ```
 
 ### Yarn
 
 ```sh
-yarn add @ashwamegh/vue-link-preview
+yarn add @ashwamegh/vue-link-preview@v2
 ```
 
 ### UMD build
 
 ```html
-<script src="https://unpkg.com/@ashwamegh/vue-link-preview@2.7.15/dist/vuelinkpreview.umd.js"></script>
+<script src="https://unpkg.com/@ashwamegh/vue-link-preview@v2/dist/vuelinkpreview.umd.js"></script>
 ```
 
 ## Usage
