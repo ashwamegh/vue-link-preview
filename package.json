@@ -49,7 +49,7 @@
     "homepage": "https://github.com/ashwamegh/vue-link-preview#readme",
     "repository": {
         "type": "git",
-        "url": "git://github.com/ashwamegh/vue-link-preview"
+        "url": "git://github.com/ashwamegh/vue-link-preview.git"
     },
     "readme": "https://github.com/ashwamegh/vue-link-preview/blob/master/README.md",
     "funding": [
