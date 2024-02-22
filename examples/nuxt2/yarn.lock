@@ -15,6 +15,11 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@ashwamegh/vue-link-preview@^2.7.15":
+  version "2.7.15"
+  resolved "https://registry.yarnpkg.com/@ashwamegh/vue-link-preview/-/vue-link-preview-2.7.15.tgz#54b87074103b772f82a6ae3ef21d640e89733fdf"
+  integrity sha512-rhDdc1wePTmzvDmrte3tAWd9M0yrwf5kBKWkizfrnjHnahdNPoMd41PWCynMJSHmIUExTboQy3OmtNT6u2k1Qg==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.22.13", "@babel/code-frame@^7.23.5":
   version "7.23.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.23.5.tgz#9009b69a8c602293476ad598ff53e4562e15c244"
@@ -5097,9 +5102,9 @@ internal-slot@^1.0.5:
     side-channel "^1.0.4"
 
 ip@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.8.tgz#ae05948f6b075435ed3307acce04629da8cdbf48"
-  integrity sha512-PuExPYUiu6qMBQb4l06ecm6T6ujzhmh+MeJcW9wa89PoAz5pvd4zPgN5WJV104mb6S2T1AwNIAaB70JNrLQWhg==
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.9.tgz#8dfbcc99a754d07f425310b86a99546b1151e396"
+  integrity sha512-cyRxvOEpNHNtchU3Ln9KC/auJgup87llfQpQ+t5ghoC/UhL16SWzbueiCsdTnWmqAWl7LadfuwhlqmtOaqMHdQ==
 
 is-accessor-descriptor@^1.0.1:
   version "1.0.1"
