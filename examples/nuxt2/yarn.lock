@@ -15,6 +15,11 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@ashwamegh/vue-link-preview@^2.7.15":
+  version "2.7.15"
+  resolved "https://registry.yarnpkg.com/@ashwamegh/vue-link-preview/-/vue-link-preview-2.7.15.tgz#54b87074103b772f82a6ae3ef21d640e89733fdf"
+  integrity sha512-rhDdc1wePTmzvDmrte3tAWd9M0yrwf5kBKWkizfrnjHnahdNPoMd41PWCynMJSHmIUExTboQy3OmtNT6u2k1Qg==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.22.13", "@babel/code-frame@^7.23.5":
   version "7.23.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.23.5.tgz#9009b69a8c602293476ad598ff53e4562e15c244"
@@ -9105,9 +9110,9 @@ webpack-bundle-analyzer@^4.9.1:
     ws "^7.3.1"
 
 webpack-dev-middleware@^5.0.0:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.3.tgz#efae67c2793908e7311f1d9b06f2a08dcc97e51f"
-  integrity sha512-hj5CYrY0bZLB+eTO+x/j67Pkrquiy7kWepMHmUMoPsmcUaeEnQJqFzHJOyxgWlq746/wUuA64p9ta34Kyb01pA==
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.4.tgz#eb7b39281cbce10e104eb2b8bf2b63fce49a3517"
+  integrity sha512-BVdTqhhs+0IfoeAf7EoH5WE+exCmqGerHfDM0IL096Px60Tq2Mn9MAbnaGUe6HiMa41KMCYF19gyzZmBcq/o4Q==
   dependencies:
     colorette "^2.0.10"
     memfs "^3.4.3"
