@@ -2,7 +2,7 @@
   <img src="./assets/link-preview.png" alt="link-preview" width="100%">
 </p>
 
-> For use with `Vue 2`, Use the v2 instructions [here](https://github.com/ashwamegh/vue-link-preview/tree/v2).
+> For use with `Vue 3`, Use the latest version [here](https://github.com/ashwamegh/vue-link-preview).
 
 # Vue Link Preview
 
@@ -36,27 +36,26 @@ Inspired by [link-preview-generator](https://github.com/AndrejGajdos/link-previe
 ### NPM
 
 ```sh
-npm install @ashwamegh/vue-link-preview
+npm install @ashwamegh/vue-link-preview@v2-latest
 ```
 
 ### Yarn
 
 ```sh
-yarn add @ashwamegh/vue-link-preview
+yarn add @ashwamegh/vue-link-preview@v2-latest
 ```
 
 ### UMD build
 
 ```html
-<script src="https://unpkg.com/@ashwamegh/vue-link-preview/dist/vuelinkpreview.umd.js"></script>
+<script src="https://unpkg.com/@ashwamegh/vue-link-preview@v2-latest/dist/vuelinkpreview.umd.js"></script>
 ```
 
 ## Usage
 
-### With Options API
+### Script
 
-```vue
-<script>
+```javascript
 import LinkPreview from "@ashwamegh/vue-link-preview";
 
 export default {
@@ -75,40 +74,17 @@ export default {
         }
     }
 };
-</script>
-<template>
+```
+
+### Template
+
+```html
 <div id="app">
     <vue-link-preview
         url="https://vuejs.org/"
-        @on-click="handleClick"
+        @click="handleClick"
     ></vue-link-preview>
 </div>
-</template>
-```
-
-### With Composition API
-
-```vue
-<script setup>
-import LinkPreview from "@ashwamegh/vue-link-preview";
-
-const handleClick = preview => {
-    console.log(
-        "click",
-        preview.domain,
-        preview.title,
-        preview.description,
-        preview.img
-    );
-};
-</script>
-
-<template>
-    <div id="app">
-        <LinkPreview url="https://vuejs.org/" @on-click="handleClick">
-        </LinkPreview>
-    </div>
-</template>
 ```
 
 ### With custom layout (With Vue Slots)
@@ -116,7 +92,7 @@ const handleClick = preview => {
 For replacing the Loader, you can add this html:
 
 ```html
-<vue-link-preview url="https://vuejs.org/" @on-click="handleClick">
+<vue-link-preview url="https://vuejs.org/" @click="handleClick">
     <template v-slot:loader>
         loader...
     </template>
@@ -124,7 +100,7 @@ For replacing the Loader, you can add this html:
 
 <!------------------- OR USE THIS ------------------->
 
-<LinkPreview url="https://vuejs.org/" @on-click="handleClick">
+<LinkPreview url="https://vuejs.org/" @click="handleClick">
     <template v-slot:loader>
         loader...
     </template>
@@ -134,7 +110,7 @@ For replacing the Loader, you can add this html:
 For replacing the content layout, you can use this:
 
 ```html
-<vue-link-preview url="https://vuejs.org/" @on-click="handleClick">
+<vue-link-preview url="https://vuejs.org/" @click="handleClick">
     <template v-slot:default="preview">
         <div>
             <p>Domain: {{ preview.domain }}</p>
@@ -154,7 +130,7 @@ For replacing the content layout, you can use this:
 All together with loader and default slot, it'll look like this:
 
 ```html
-<vue-link-preview url="https://vuejs.org/" @on-click="handleClick">
+<vue-link-preview url="https://vuejs.org/" @click="handleClick">
     <template v-slot:loader>
         loader...
     </template>
@@ -174,8 +150,32 @@ All together with loader and default slot, it'll look like this:
 </vue-link-preview>
 ```
 
+### With Composition API
 
-## More Examples [here](https://github.com/ashwamegh/vue-link-preview/tree/main/examples)
+```javascript
+<script setup>
+import LinkPreview from "@ashwamegh/vue-link-preview";
+
+const handleClick = preview => {
+    console.log(
+        "click",
+        preview.domain,
+        preview.title,
+        preview.description,
+        preview.img
+    );
+};
+</script>
+
+<template>
+    <div id="app">
+        <LinkPreview url="https://vuejs.org/" @click="handleClick">
+        </LinkPreview>
+    </div>
+</template>
+```
+
+## More Examples [here](https://github.com/ashwamegh/vue-link-preview/tree/v2/examples)
 
 ## Props
 
@@ -193,9 +193,9 @@ All together with loader and default slot, it'll look like this:
 
 ## Events
 
-| Name      | Description               |
-| -------   | ------------------------- |
-| `onClick` | It emits the preview data |
+| Name    | Description               |
+| ------- | ------------------------- |
+| `click` | It emits the preview data |
 
 > Note: If you want to use `click` event without opening the url, then pass `:canOpenLink="false"` in the props
 
