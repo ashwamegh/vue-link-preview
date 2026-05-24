@@ -8,7 +8,6 @@
     "files": [
         "dist/*"
     ],
-
     "exports": {
         ".": {
             "import": "./dist/vuelinkpreview.esm.js",
@@ -26,12 +25,12 @@
     },
     "devDependencies": {
         "@types/node": "^20.10.5",
-        "vue": "^3.3.11",
-        "@vitejs/plugin-vue": "^4.5.2",
-        "typescript": "^5.2.2",
-        "vite": "^5.0.8",
-        "vite-plugin-css-injected-by-js": "^3.3.1",
-        "vue-tsc": "^1.8.26"
+        "@vitejs/plugin-vue": "^5.0.0",
+        "typescript": "^5.3.3",
+        "vite": "^5.2.6",
+        "vite-plugin-css-injected-by-js": "^3.5.0",
+        "vue": "^3.4.0",
+        "vue-tsc": "^2.0.0"
     },
     "author": "Shashank Shekhar",
     "license": "MIT",

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 
 export type TPreviewResponse = {
     title: string;
@@ -71,7 +71,7 @@ const onClick = () => {
     emits("onClick", preview.value);
 };
 
-const computedStyles = () => {
+const computedStyles = computed(() => {
     return {
         width: props.width,
         maxWidth: props.maxWidth,
@@ -80,7 +80,7 @@ const computedStyles = () => {
         marginRight: props.marginRight,
         marginLeft: props.marginLeft
     };
-};
+});
 
 onMounted(() => {
     loading.value = true;
