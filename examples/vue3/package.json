@@ -11,8 +11,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "vue": "^3.3.11",
-    "@ashwamegh/vue-link-preview": "^3.3.0"
+    "@ashwamegh/vue-link-preview": "file:../../",
+    "vue": "^3.3.11"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",
